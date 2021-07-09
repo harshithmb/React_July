@@ -1,20 +1,30 @@
 import React from "react";
 
-function Card({ index, age, name, salary }) {
-  const styles = {
-    fontSize: "25px",
-    color: "Red",
-  };
+const Card = (props) => {
+  const {
+    id,
+    name,
+    preview,
+    photos,
+    description,
+    size,
+    isAccessory,
+    brand,
+    price,
+  } = props;
+
   return (
-    <div
-      key={index}
-      style={{ border: "1px solid", padding: "20px", margin: "20px" }}
-    >
-      <h2 style={styles}>Name : {name}</h2>
-      <h3>Age : {age}</h3>
-      <h4>Salary : {salary}</h4>
+    <div className="card m-4 card-width" key={id}>
+      <img className="card-img-top" src={preview} alt="Card image cap" />
+      <div className="card-body">
+        <h5 className="card-title">{name}</h5>
+        <p className="card-text">{description}</p>
+        <a href="#" className="btn btn-primary">
+          Go somewhere
+        </a>
+      </div>
     </div>
   );
-}
+};
 
 export default Card;

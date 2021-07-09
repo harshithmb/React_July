@@ -1,3 +1,11 @@
 .cards {
   display: flex;
 }
+
+.card-width {
+  width: 300px;
+}
+
+.banner-heading {
+  color: red;
+}

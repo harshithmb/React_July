@@ -1,39 +1,27 @@
-import React from "react"; // imr
+import React from "react";
 //css
 import "./App.css";
-//Components
-import Top from "./components/Topbar"; // Default
+//components
+import Topbar from "./components/TopBar";
+import Banner from "./components/Banner";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
-//Utils
-import { names, user as username } from "./utils/mockData";
-import { toLower, toUpper } from "./utils";
+//Mock Data
+import { products } from "./utils/mockData";
 
-function App() {
-  // sfc
+const App = () => {
   return (
     <div>
-      <Top username={toUpper(username)} />
-      <div className="cards">
-        {names.map((item, index) => (
-          <Card {...item} index={index} />
+      <Topbar />
+      <Banner />
+      <div className="d-flex flex-wrap">
+        {products.map((item, index) => (
+          <Card {...item} />
         ))}
       </div>
-      <Child second="Second name" />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
-
-function Child({ first = "First Default", second }) {
-  // let first = props.first;
-  // let second = props.second;
-  return (
-    <div>
-      <h1>Hello {first}</h1>
-      <h2>{second}</h2>
-    </div>
-  );
-}
