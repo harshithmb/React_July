@@ -1,9 +1,11 @@
 import React from "react";
+//Module css
+import styles from "./Banner.module.css";
 
 const Banner = () => {
   return (
     <div className="jumbotron p-4">
-      <h1 className="display-4 banner-heading">Hello, world!</h1>
+      <h1 className={`display-4 ${styles.lead}`}>Hello, world!</h1>
       <p className="lead">
         This is a simple hero unit, a simple jumbotron-style component for
         calling extra attention to featured content or information.
