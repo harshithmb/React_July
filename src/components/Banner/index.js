@@ -8,7 +8,7 @@ const Banner = () => {
       <h1 className={`display-4 ${styles.lead}`}>Hello, world!</h1>
       <p className="lead">
         This is a simple hero unit, a simple jumbotron-style component for
-        calling extra attention to featured content or information.
+        calling extra attention to featured con
       </p>
       <hr className="my-4" />
       <p>
