@@ -1,15 +1,15 @@
-import React, { Component, PureComponent } from "react";
+import React, { Component, PureComponent, useState } from "react";
 //css
 import "./App.css";
 //components
 import Topbar from "./components/TopBar";
 import Banner from "./components/Banner";
 import Card from "./components/Card";
+import Cards from "./components/Cards";
 import Footer from "./components/Footer";
 import axios from "axios";
 //Mock Data
 //import { products } from "./utils/mockData";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ class App extends Component {
   //   } else return false;
   // }
   componentDidUpdate() {
-    // console.log("Update Phase componentDidUpdate");
+    // console.log("Update Phase componentDidUpdate API after update in jsx");
   }
 
   handleChild = () => {
@@ -49,9 +49,18 @@ class App extends Component {
     return (
       <div>
         <Topbar />
-        <Banner />
-        {this.state.showChild ? <Child /> : ""}
+        <Banner name="banner" />
         <button
+          onClick={() => this.setState({ showChild: !this.state.showChild })}
+        >
+          Cards SHOW/HIDE
+        </button>
+        {this.state.showChild ? (
+          <Cards updateCount={(count) => console.log("COunt", count)} />
+        ) : (
+          ""
+        )}
+        {/* <button
           onClick={() => this.setState({ showChild: !this.state.showChild })}
         >
           Child SHOW/HIDE
@@ -64,7 +73,7 @@ class App extends Component {
               <Card {...item} />
             ))}
           </div>
-        )}
+        )} */}
         <Footer />
       </div>
     );
@@ -73,27 +82,39 @@ class App extends Component {
 
 export default App;
 
-class Child extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: { age: 1 },
-      ages: "",
-    };
-  }
+const Child = () => {
+  const [user, setUser] = useState("Initial");
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ count: { age: 123 } });
-    }, 1000);
-  }
+  return (
+    <div>
+      <h1>Child - {user}</h1>
+      <button onClick={() => setUser("Prashant")}>Click Me</button>
+    </div>
+  );
+};
 
-  componentWillUnmount() {
-    console.log("Component is closing");
-    // alert("Component is closing")
-  } // Unmounting phase
-  render() {
-    console.log("Child Render");
-    return <h1>Hello Child {this.state.count} </h1>;
-  }
-}
+// class Child extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       count: 1,
+//       ages: "",
+//       products: []
+//     };
+//   }
+
+//   componentDidMount() {
+//     setInterval(() => {
+//       this.setState({ count: 123 });
+//     }, 1000);
+//   }
+
+//   componentWillUnmount() {
+//     console.log("Component is closing");
+//     // alert("Component is closing")
+//   } // Unmounting phase
+//   render() {
+//     console.log("Child Render");
+//     return <h1>Hello Child {this.state.count} </h1>;
+//   }
+// }

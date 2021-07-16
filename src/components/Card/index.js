@@ -11,6 +11,7 @@ const Card = (props) => {
     isAccessory,
     brand,
     price,
+    addProduct,
   } = props;
 
   return (
@@ -19,8 +20,12 @@ const Card = (props) => {
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text">{description}</p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
+        <a
+          href="#"
+          className="btn btn-primary"
+          onClick={() => addProduct(props)}
+        >
+          ADD TO CART
         </a>
       </div>
     </div>
