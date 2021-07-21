@@ -32,18 +32,27 @@ const Cards = (props) => {
   }, []); // componentWillUnmount
 
   const getProducts = async () => {
-    const response = await axios
-      .get("https://5d76bf96515d1a0014085cf9.mockapi.io/product")
-      .then((res) => {
-        console.log("Response from API", res);
-        // setProducts(res.data);
-        // setLoader(false);
-        return res.data;
-      });
-    console.log("Got Response", response);
-    setProducts(response);
-    setOrgProducts(response);
-    setLoader(false);
+    // const response = await axios
+    //   .get("https://5d76bf96515d1a0014085cf9.mockapi.io/product")
+    //   .then((res) => {
+    //     console.log("Response from API", res);
+    //     Array.isArray(res.data) ? setProducts(res.data): ""
+    //     // setProducts(res.data);
+    //     // setLoader(false);
+    //     return res.data;
+    //   }).catch((err) => alert(err))
+    // new Promise((resolve, reject) => {
+    //   resolve([])
+    //   reject("Something went wrong")
+    // })
+    // fetch("url")
+    // .then(res => res.json())
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err))
+    // console.log("Got Response", response);
+    // setProducts(response);
+    // setOrgProducts(response);
+    // setLoader(false);
   };
 
   const onSearch = () => {
