@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Product from "./components/Product";
 import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
 
           <Route path="/product/:id" component={Product} />
           <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+
           <Route component={() => <h1>404 page not found</h1>} />
         </Switch>
 

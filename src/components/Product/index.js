@@ -6,7 +6,7 @@ const Product = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState({ name: "", price: "" });
   const url = "https://5d76bf96515d1a0014085cf9.mockapi.io/product/";
-  //   console.log("Product", props.match, props.match.params.id);
+  console.log("Product", props);
 
   useEffect(() => {
     axios(url + id).then((res) => setProduct(res.data));

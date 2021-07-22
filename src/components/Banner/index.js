@@ -39,7 +39,7 @@ class Banner extends Component {
           <a
             onClick={this.updateUser}
             className="btn btn-primary btn-lg"
-            href="#"
+            href="/"
             role="button"
           >
             Change User

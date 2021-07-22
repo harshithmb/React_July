@@ -5,6 +5,7 @@ import axios from "axios";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const [cardStyle, setCardStyle] = useState(null);
 
   useEffect(() => {
     axios
@@ -18,7 +19,16 @@ const Home = () => {
     <div>
       <Banner />
       <div className="d-flex flex-wrap">
-        {products.length && products.map((item) => <Card {...item} />)}
+        {products.length &&
+          products.map((item, index) => (
+            <div key={index}>
+              <Card
+                {...item}
+                cardStyleId={cardStyle}
+                handleCardStyle={(id) => setCardStyle(id)}
+              />
+            </div>
+          ))}
       </div>
     </div>
   );

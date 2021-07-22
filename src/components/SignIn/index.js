@@ -33,7 +33,7 @@ const SignIn = () => {
           value={email}
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toUpperCase())}
         />
         <div id="emailHelp" className="form-text">
           We'll never share your email with anyone else.
